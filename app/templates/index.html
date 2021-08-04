@@ -1,0 +1,123 @@
+{% extends 'base/base.html' %}
+
+{% block banner %}
+<div class="slider-area">
+    <!-- Slider -->
+    <div class="block-slider block-slider4">
+        <ul class="" id="bxslider-home4">
+            <li>
+                <img src="{{ url_for('static', filename='img/h1-slide.png') }}" alt="Slide">
+
+            </li>
+            <li><img src="{{ url_for('static', filename='img/h1-slide2.png') }}" alt="Slide">
+
+            </li>
+            <li><img src="{{ url_for('static', filename='img/h1-slide3.png') }}" alt="Slide">
+
+            </li>
+            <li><img src="{{ url_for('static', filename='img/h1-slide4.png') }}" alt="Slide">
+
+            </li>
+        </ul>
+    </div>
+    <!-- ./Slider -->
+</div> <!-- End slider area -->
+{% endblock %}
+
+{% block promo %}
+<div class="promo-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo1">
+                        <i class="fa fa-refresh"></i>
+                        <p>30 Days return</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo2">
+                        <i class="fa fa-truck"></i>
+                        <p>Free shipping</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo3">
+                        <i class="fa fa-lock"></i>
+                        <p>Secure payments</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo4">
+                        <i class="fa fa-gift"></i>
+                        <p>New products</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End promo area -->
+{% endblock %}
+
+{% block last_product %}
+{% for product in products %}
+<div class="single-product">
+    <div class="product-f-image">
+        <img src="{{ product.image }}" alt="">
+        <div class="product-hover">
+            <a href="javascript:;" onclick="addToCart({{product.id}}, '{{product.name}}', {{ product.price }})" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</a>
+            <a href="{{ url_for('product_detail', product_id=product.id) }}" class="view-details-link"><i class="fa fa-link"></i> Chi tiết</a>
+        </div>
+    </div>
+
+    <h2><a href="{{ url_for('product_detail', product_id=product.id) }}">{{ product.name }}</a></h2>
+
+    <div class="product-carousel-price">
+        <ins>{{ "{:,.0f}".format(product.price) }} VNĐ</ins>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+
+{% block phones %}
+{% for product in phones %}
+<div class="single-product">
+    <div class="product-f-image">
+        <img src="{{ product.image }}" alt="">
+        <div class="product-hover">
+            <a href="javascript:;" onclick="addToCart({{product.id}}, '{{product.name}}', {{ product.price }})" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</a>
+            <a href="{{ url_for('product_detail', product_id=product.id) }}" class="view-details-link"><i class="fa fa-link"></i> Chi tiết</a>
+        </div>
+    </div>
+
+    <h2><a href="{{ url_for('product_detail', product_id=product.id) }}">{{ product.name }}</a></h2>
+
+    <div class="product-carousel-price">
+        <ins>{{ "{:,.0f}".format(product.price) }} VNĐ</ins>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block tablets %}
+{% for product in tablets %}
+<div class="single-product">
+    <div class="product-f-image">
+        <img src="{{ product.image }}" alt="">
+        <div class="product-hover">
+            <a href="javascript:;" onclick="addToCart({{product.id}}, '{{product.name}}', {{ product.price }})" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</a>
+            <a href="{{ url_for('product_detail', product_id=product.id) }}" class="view-details-link"><i class="fa fa-link"></i> Chi tiết</a>
+        </div>
+    </div>
+
+    <h2><a href="{{ url_for('product_detail', product_id=product.id) }}">{{ product.name }}</a></h2>
+
+    <div class="product-carousel-price">
+        <ins>{{ "{:,.0f}".format(product.price) }} VNĐ</ins>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+
+

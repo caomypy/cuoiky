@@ -1,0 +1,9 @@
+{% extends "admin/master.html" %}
+
+{% block body %}
+    {% if current_user.is_authenticated %}
+        <h1>CHAO MUNG {{current_user.name}} DEN VOI TRANG QUAN LY</h1>
+    {% else %}
+        {% include "admin/login.html" %}
+    {% endif %}
+{% endblock%}

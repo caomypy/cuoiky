@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+{% block body %}
+    <div class="container">
+        <h1 class="text-center text-success">ĐĂNG NHẬP</h1>
+        {% if err_msg %}
+        <div class="alert alert-danger">
+            <h1>{{ err_msg }}</h1>
+        </div>
+        {% endif %}
+        <form method="post">
+            <div class="form-group">
+                <input type="text" placeholder="Username..."
+                       name="username" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Password..."
+                       name="password" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login"
+                       class="btn btn-danger" />
+            </div>
+        </form>
+    </div>
+{% endblock %}

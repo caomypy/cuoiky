@@ -1,0 +1,47 @@
+{% extends 'base/base.html' %}
+
+{% block body %}
+<div class="container">
+        <h1 class="text-center text-success">GIO HANG</h1>
+        {% if err_msg %}
+        <div class="alert alert-danger">
+            {{ err_msg }}
+        </div>
+        {% endif %}
+        <table class="table">
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th></th>
+            </tr>
+            {% if session['cart'] %}
+                {% for c in session["cart"].values() %}
+                <tr >
+                    <td>{{ c.name }}</td>
+                    <td>{{ c.price }}</td>
+<!--                    <td>{{ c.quantity }}</td>-->
+                    <td>
+                        <div class="form-group">
+                            <input type="number" value="{{ c.quantity }}" class="form-control" style="width:50px">
+                        </div>
+                    </td>
+                    <td><a href="#">Xoá</a></td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="3">Không có sản phẩm</td>
+                </tr>
+            {% endif %}
+            <tr>
+                <td colspan="3">
+                    <form action="{{url_for('cart')}}" method="post">
+                        <input type="submit" value="Thanh toan" class="btn btn-danger" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}
+
